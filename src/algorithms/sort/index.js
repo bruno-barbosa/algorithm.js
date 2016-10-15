@@ -5,17 +5,19 @@
  * @return Function   returns a constructor functions with the new Object constructor
  */
 
-var Sort = function () {
-  return new Sort.prototype.init() // eslint-disable-line
-}
+var Sort = (function () {
+  var SortInit = function () {}
 
-Sort.prototype = {
-  init        : function () {},
-  bubble      : require('./bubbleSort'),
-  selection   : require('./selectionSort'),
-  insertion   : require('./insertionSort')
-}
+  SortInit.prototype = {
+    init        : function () {},
+    bubble      : require('./bubbleSort'),
+    selection   : require('./selectionSort'),
+    insertion   : require('./insertionSort'),
+    merge       : require('./mergeSort'),
+    quick       : require('./quickSort')
+  }
 
-Sort.prototype.init.prototype = Sort.prototype
+  return new SortInit() // eslint-disable-line
+})()
 
 module.exports = Sort
